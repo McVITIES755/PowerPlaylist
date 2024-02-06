@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial";
+    user-select: none;
+  }
+  *::before, *::after{
+    padding: 0;
+    margin: 0;
+    user-select: none;
+  }
+  
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: black;
+    user-select: none;
+    color: black;
+    user-select: none;
+  }
+    
+  .wrapper{
+    height: 100%;
+    min-height: 932px;
+    width: 430px;
+    padding: 25px 30px;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+    background: black;
+    box-shadow: 0px 6px 15px black;
+  }
+
+  .wrapper2{
+    height: 100%;
+    min-height: 932px;
+    width: 430px;
+    padding: 25px 30px;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+    background: white;
+    box-shadow: 0px 6px 15px black;
+  }
+  
+  video{
+    width: 370px;
+    margin-bottom: 10px;
+  }
+  
+  img{
+    width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .private-img{
+    width: 370px;
+  }
+
+  .buffer-img{
+    padding-top: 20px;
+    width: 370px;
+    height: 932px;
+  }
+
+  .buffer-img5{
+    padding-top: 20px;
+    width: 370px;
+    height: 650px;
+  }
+  
+  .welcome{
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .welcome-button{
+    width: 370px;
+    background-color: black;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding-bottom: 20px;
+  }
+
+  h1{
+    font-size: 15px;
+    color: black;
+    background-color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-style: normal;
+    margin-bottom: 20px;
+  }
+  
+  p{
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    background-color: black;
+    padding: 4px;
+  }
+
+  .pornButton{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
