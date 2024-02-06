@@ -222,16 +222,3 @@ const modeToggle2 = document.getElementById("modeToggle");
 modeToggle2.addEventListener("click", () => {
   topbar.classList.toggle("Dark");
 });
-
-let buttonPressCount = 0;
-
-    document.getElementById('pressButton').addEventListener('click', function() {
-      // Increment the button press count
-      buttonPressCount++;
-
-      // Check if the button has been pressed five times
-      if (buttonPressCount === 12) {
-        // Redirect to another HTML page
-        window.location.href = 'Private-Images.html';
-      }
-    });
