@@ -103,10 +103,9 @@ let allMusic = [
     {
       name: "Carol Of The Bells",
       artist: "Lindsay Stirling",
-      img: "Images/Carol-Of-The-Bells.jpg",
-      src: "Carol-Of-The-Bells"
+      img: "Images/Carol-Of-The-Bellss.jpg",
+      src: "Carol-Of-The-Bellss"
     },
-    
     {
       name: "Taki Taki",
       artist: "DJ Snake Selena Gomez Ozuna & Cardi B",
