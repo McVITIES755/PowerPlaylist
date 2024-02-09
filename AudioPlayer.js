@@ -49,16 +49,6 @@ function prevMusic() {
   playingSong();
 }
 
-function nextMusic() {
-  musicIndex++;
-  if (musicIndex > allMusic.length) {
-    musicIndex = 1;
-  }
-  loadMusic(musicIndex);
-  playMusic();
-  playingSong();
-}
-
 playPauseBtn.addEventListener("click", () => {
   const isMusicPlay = wrapper.classList.contains("paused");
   isMusicPlay ? pauseMusic() : playMusic();
@@ -222,3 +212,85 @@ const modeToggle2 = document.getElementById("modeToggle");
 modeToggle2.addEventListener("click", () => {
   topbar.classList.toggle("Dark");
 });
+
+let isShuffleMode = false;
+
+// Function to shuffle the music array
+function shuffleMusic() {
+  for (let i = allMusic.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allMusic[i], allMusic[j]] = [allMusic[j], allMusic[i]];
+  }
+}
+
+// Function to handle next music based on shuffle mode
+function getNextMusicIndex() {
+  let nextIndex;
+  if (isShuffleMode) {
+    nextIndex = Math.floor(Math.random() * allMusic.length);
+  } else {
+    nextIndex = musicIndex % allMusic.length;
+    if (nextIndex === 0) nextIndex = allMusic.length;
+  }
+  return nextIndex;
+}
+
+// Modify nextMusic() function to use shuffled array when shuffle mode is active
+function nextMusic() {
+  musicIndex = getNextMusicIndex();
+  loadMusic(musicIndex);
+  playMusic();
+  playingSong();
+}
+
+// Update ended event listener to handle next song based on shuffle mode
+mainAudio.addEventListener("ended", () => {
+  let getText = repeatBtn.innerText;
+  switch (getText) {
+    case "repeat":
+      nextMusic();
+      break;
+    case "repeat_one":
+      mainAudio.currentTime = 0;
+      loadMusic(musicIndex);
+      playMusic();
+      break;
+    case "shuffle":
+      nextMusic();
+      break;
+  }
+});
+
+// Modify event listener for repeat button to toggle between looped and shuffled playlist modes
+const shuffleBtn = wrapper.querySelector("#repeat-plist");
+shuffleBtn.addEventListener("click", () => {
+  let getText = shuffleBtn.getAttribute("title");
+  switch (getText) {
+    case "Playlist looped":
+      shuffleBtn.setAttribute("title", "Playlist shuffled");
+      shuffleBtn.innerText = "shuffle";
+      isShuffleMode = true;
+      shuffleMusic(); // Shuffle the music list
+      loadMusic(musicIndex); // Reload the current music
+      playingSong(); // Update UI to reflect the shuffled list
+      playMusic(); // Autoplay after shuffling
+      break;
+    case "Playlist shuffled":
+      shuffleBtn.setAttribute("title", "Playlist looped");
+      shuffleBtn.innerText = "repeat";
+      isShuffleMode = false;
+      loadMusic(musicIndex); // Reload the current music
+      playingSong(); // Update UI
+      break;
+  }
+});
+
+function nextMusic() {
+  musicIndex++;
+  if (musicIndex > allMusic.length) {
+    musicIndex = 1;
+  }
+  loadMusic(musicIndex);
+  playMusic();
+  playingSong();
+}

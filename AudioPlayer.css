@@ -19,7 +19,7 @@ body{
   min-height: 100vh;
   background-color: black;
   user-select: none;
-  color: black;
+  color: white;
   user-select: none;
 }
 
@@ -31,7 +31,7 @@ body{
   overflow: hidden;
   flex-direction: column;
   position: relative;
-  background: white;
+  background: black;
   box-shadow: 0px 0px 0px black;
 }
 .title {
@@ -193,13 +193,13 @@ body{
   position: absolute;
   background: white;
   width: 100%;
+  height: 45%;
   left: 0;
   bottom: -55%;
   opacity: 0;
   pointer-events: none;
   z-index: 5;
   padding: 15px 30px;
-  border-radius: 15px;
   box-shadow: black;
   transition: all 0.15s ease-out;
 }
@@ -259,14 +259,14 @@ ul li.playing{
 }
 
 .light-mode {
-    background-color: white;
-    color: white;
+    background-color: black;
+    color: black;
 }
 
 .dark-mode{
-    background: black;
-    color: white;
-    border-color: white;
+    background: white;
+    color: black;
+    border-color: black;
 }
 
 .control-box {
@@ -275,7 +275,7 @@ ul li.playing{
     border-style: solid;
     padding: 11px;
     padding-top: 15px;
-    border-radius: 15px;
+    border-radius: 7px;
     color: white;
     background-color: white;
 }
@@ -283,15 +283,15 @@ ul li.playing{
 .DarkMode {
     background-color: transparent;
     border: none;
-    color: black;
+    color: white;
 }
 
 .fontawesome-icon{
   background: transparent;
-  color: black;
+  color: white;
   font-size: 10px;
 }
 
 .Dark {
-  color: white;
+  color: black;
 }
