@@ -53,6 +53,12 @@ let allMusic = [
       src: "Derniere-Danse"
     },
     {
+      name: "New Rules",
+      artist: "Dua Lipa",
+      img: "Images/New-Rules.jpg",
+      src: "New-Rules"
+    },
+    {
       name: "Tourner Dans Le Vide",
       artist: "Indila",
       img: "Images/Tourner-Dans-Le-Vide.jpg",
