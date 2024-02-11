@@ -149,6 +149,12 @@ let allMusic = [
         src: "Dusk-Till-Dawn"
     },
     {
+      name: "Blank Space",
+      artist: "Taylor Swift",
+      img: "Images/Blank-Space.jpg",
+      src: "Blank-Space"
+  },
+    {
         name: "Another Love",
         artist: "Tom Odell",
         img: "Images/Another-Love.jpg",
