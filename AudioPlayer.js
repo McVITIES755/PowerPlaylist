@@ -13,11 +13,10 @@ const wrapper = document.querySelector(".wrapper"),
   closemoreMusic = musicList.querySelector("#close");
 
 let musicIndex = 1; // Start with the first song in the array
-isMusicPaused = true;
+const isMusicPaused = true;
 
 window.addEventListener("load", () => {
   loadMusic(musicIndex);
-  playingSong();
 });
 
 function loadMusic(indexNumb) {
@@ -46,13 +45,11 @@ function prevMusic() {
   }
   loadMusic(musicIndex);
   playMusic();
-  playingSong();
 }
 
 playPauseBtn.addEventListener("click", () => {
   const isMusicPlay = wrapper.classList.contains("paused");
   isMusicPlay ? pauseMusic() : playMusic();
-  playingSong();
 });
 
 prevBtn.addEventListener("click", () => {
@@ -71,15 +68,6 @@ mainAudio.addEventListener("timeupdate", (e) => {
 
   let musicCurrentTime = wrapper.querySelector(".current-time");
   let musicDuration = wrapper.querySelector(".max-duration");
-  mainAudio.addEventListener("loadeddata", () => {
-    let mainAdDuration = mainAudio.duration;
-    let totalMin = Math.floor(mainAdDuration / 60);
-    let totalSec = Math.floor(mainAdDuration % 60);
-    if (totalSec < 10) {
-      totalSec = `0${totalSec}`;
-    }
-    musicDuration.innerText = `${totalMin}:${totalSec}`;
-  });
 
   let currentMin = Math.floor(currentTime / 60);
   let currentSec = Math.floor(currentTime % 60);
@@ -87,7 +75,19 @@ mainAudio.addEventListener("timeupdate", (e) => {
     currentSec = `0${currentSec}`;
   }
   musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+
+  let mainAdDuration = mainAudio.duration;
+  if (!isNaN(mainAdDuration)) { // Check if duration is not NaN
+    let totalMin = Math.floor(mainAdDuration / 60);
+    let totalSec = Math.floor(mainAdDuration % 60);
+    if (totalSec < 10) {
+      totalSec = `0${totalSec}`;
+    }
+    musicDuration.innerText = `${totalMin}:${totalSec}`;
+  }
 });
+
+
 
 progressArea.addEventListener("click", (e) => {
   let progressWidth = progressArea.clientWidth;
@@ -96,7 +96,6 @@ progressArea.addEventListener("click", (e) => {
 
   mainAudio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
   playMusic();
-  playingSong();
 });
 
 const repeatBtn = wrapper.querySelector("#repeat-plist");
@@ -196,7 +195,6 @@ function clicked(element) {
   musicIndex = getLiIndex;
   loadMusic(musicIndex);
   playMusic();
-  playingSong();
 }
 
 const player = document.getElementById("wrapper");
@@ -235,32 +233,6 @@ function getNextMusicIndex() {
   return nextIndex;
 }
 
-// Modify nextMusic() function to use shuffled array when shuffle mode is active
-function nextMusic() {
-  musicIndex = getNextMusicIndex();
-  loadMusic(musicIndex);
-  playMusic();
-  playingSong();
-}
-
-// Update ended event listener to handle next song based on shuffle mode
-mainAudio.addEventListener("ended", () => {
-  let getText = repeatBtn.innerText;
-  switch (getText) {
-    case "repeat":
-      nextMusic();
-      break;
-    case "repeat_one":
-      mainAudio.currentTime = 0;
-      loadMusic(musicIndex);
-      playMusic();
-      break;
-    case "shuffle":
-      nextMusic();
-      break;
-  }
-});
-
 // Modify event listener for repeat button to toggle between looped and shuffled playlist modes
 const shuffleBtn = wrapper.querySelector("#repeat-plist");
 shuffleBtn.addEventListener("click", () => {
@@ -292,5 +264,4 @@ function nextMusic() {
   }
   loadMusic(musicIndex);
   playMusic();
-  playingSong();
 }
