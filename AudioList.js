@@ -59,6 +59,12 @@ let allMusic = [
       src: "New-Rules"
     },
     {
+      name: "Sue Me",
+      artist: "Sabrina Carpenter",
+      img: "Images/Sue-Me.jpg",
+      src: "Sue-Me"
+    },
+    {
       name: "Tourner Dans Le Vide",
       artist: "Indila",
       img: "Images/Tourner-Dans-Le-Vide.jpg",

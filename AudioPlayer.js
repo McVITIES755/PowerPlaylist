@@ -145,15 +145,18 @@ closemoreMusic.addEventListener("click", () => {
 const ulTag = wrapper.querySelector("ul");
 
 for (let i = 0; i < allMusic.length; i++) {
-  let liTag = `<li li-index="${i + 1}">
-                <div class="row">
+  let liTag = document.createElement("li");
+  liTag.setAttribute("li-index", i + 1);
+
+  let innerHTML = `<div class="row">
                   <span>${allMusic[i].name}</span>
                   <p>${allMusic[i].artist}</p>
                 </div>
                 <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
-                <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
-              </li>`;
-  ulTag.insertAdjacentHTML("beforeend", liTag);
+                <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>`;
+  liTag.innerHTML = innerHTML;
+
+  ulTag.appendChild(liTag);
 
   let liAudioDuartionTag = ulTag.querySelector(`#${allMusic[i].src}`);
   let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
@@ -167,7 +170,12 @@ for (let i = 0; i < allMusic.length; i++) {
     liAudioDuartionTag.innerText = `${totalMin}:${totalSec}`;
     liAudioDuartionTag.setAttribute("t-duration", `${totalMin}:${totalSec}`);
   });
+
+  liTag.addEventListener("click", () => {
+    clicked(liTag);
+  });
 }
+
 
 function playingSong() {
   const allLiTag = ulTag.querySelectorAll("li");
@@ -191,7 +199,7 @@ function playingSong() {
 }
 
 function clicked(element) {
-  let getLiIndex = element.getAttribute("li-index");
+  let getLiIndex = parseInt(element.getAttribute("li-index"), 10); // Convert to integer
   musicIndex = getLiIndex;
   loadMusic(musicIndex);
   playMusic();
