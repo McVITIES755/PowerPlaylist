@@ -12,6 +12,28 @@ const wrapper = document.querySelector(".wrapper"),
   moreMusicBtn = wrapper.querySelector("#more-music"),
   closemoreMusic = musicList.querySelector("#close");
 
+
+// Window Load Event Listener
+window.addEventListener("load", () => {
+  // Check if there is a stored music index in localStorage
+  const storedMusicIndex = localStorage.getItem("musicIndex");
+  if (storedMusicIndex) {
+    musicIndex = parseInt(storedMusicIndex, 10);
+    loadMusic(musicIndex);
+    const isPaused = localStorage.getItem("isMusicPaused");
+    if (isPaused === "false") {
+      playMusic();
+    }
+  } else {
+    loadMusic(musicIndex);
+  }
+  playingSong();
+});
+
+// Your existing JavaScript code...
+// Continue with your existing code below the window load event listener
+
+
 let musicIndex = 1; // Start with the first song in the array
 const isMusicPaused = true;
 
