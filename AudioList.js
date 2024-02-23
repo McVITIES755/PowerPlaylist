@@ -59,6 +59,12 @@ let allMusic = [
       src: "New-Rules"
     },
     {
+      name: "Levitating",
+      artist: "Dua Lipa",
+      img: "Images/Levitating.jpg",
+      src: "Levitating"
+    },
+    {
       name: "Sue Me",
       artist: "Sabrina Carpenter",
       img: "Images/Sue-Me.jpg",
@@ -160,12 +166,6 @@ let allMusic = [
       img: "Images/Blank-Space.jpg",
       src: "Blank-Space"
   },
-    {
-        name: "Another Love",
-        artist: "Tom Odell",
-        img: "Images/Another-Love.jpg",
-        src: "Another-Love"
-    },
     // like this paste it and remember to give comma after ending of this bracket }
     // {
     //   name: "Here is the music name",
