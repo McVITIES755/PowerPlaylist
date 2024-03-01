@@ -166,6 +166,12 @@ let allMusic = [
       img: "Images/Blank-Space.jpg",
       src: "Blank-Space"
   },
+  {
+      name: "You Belong With Me",
+      artist: "Taylor Swift",
+      img: "Images/You-Belong-With-Me.jpg",
+      src: "You-Belong-With-Me"
+  },
     // like this paste it and remember to give comma after ending of this bracket }
     // {
     //   name: "Here is the music name",
