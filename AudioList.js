@@ -172,6 +172,12 @@ let allMusic = [
       img: "Images/You-Belong-With-Me.jpg",
       src: "You-Belong-With-Me"
   },
+  {
+    name: "Gasolina",
+    artist: "Daddy Yankee",
+    img: "Images/Gasolina.jpg",
+    src: "Gasolina"
+},
     // like this paste it and remember to give comma after ending of this bracket }
     // {
     //   name: "Here is the music name",
